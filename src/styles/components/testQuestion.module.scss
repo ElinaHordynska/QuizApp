@@ -1,0 +1,26 @@
+@import "~bootstrap";
+
+.question {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 500px !important;
+    margin: 15px auto !important;
+    & h2 {
+        text-align: center;
+    }
+    & ul {
+        list-style: ">🦠";  /* windows + ю */
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        & li {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            & input {
+                @extend .form-check-input
+            }
+        }
+    }
+}

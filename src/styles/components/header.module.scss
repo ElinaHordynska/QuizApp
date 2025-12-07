@@ -1,0 +1,12 @@
+@use "../base/colors.scss" as c;
+
+.header {
+  background-color: c.$primary-100;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  box-shadow: 0px 5px 10px rgba(c.$primary-100, 0.544);
+  color: c.$text-100;
+}
+
