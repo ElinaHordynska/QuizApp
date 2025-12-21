@@ -9,11 +9,14 @@ export default class App extends Component {
     super(props)
     this.state = {
       isQuizStarted: false,
-      questionNumber: 0
+      questionNumber: 0,
+      // userAnswers: []
     }
     this.startQuiz = this.startQuiz.bind(this);
-    this.nextQuestion = this.nextQuestion.bind(this)
-    this.prevQuestion = this.prevQuestion.bind(this)
+    this.nextQuestion = this.nextQuestion.bind(this);
+    this.prevQuestion = this.prevQuestion.bind(this);
+    this.stopQuiz = this.stopQuiz.bind(this);
+    // this.addAnswer = this.addAnswer.bind(this)
   }
 
   startQuiz() {
@@ -30,9 +33,14 @@ export default class App extends Component {
     this.setState({ questionNumber: this.state.questionNumber - 1});
   }
 
+  stopQuiz() {
+    this.setState({isQuizStarted: false})
+  }
+
   quiz1 = {
     quizName: "Capitals test",
     quizDescription: "Test your Geography knowledge",
+    time: 300,
     questions: [
       {
         questionId: 1,
@@ -79,6 +87,9 @@ export default class App extends Component {
               answers={this.quiz1.questions[this.state.questionNumber].answers}
               next={this.nextQuestion}
               prev={this.prevQuestion}
+              stop={this.stopQuiz} //property or just props
+              count={this.quiz1.questions.length}
+              time={this.quiz1.time}
             />
           ) : (
             <StartQuiz name={this.quiz1.quizName} description={this.quiz1.quizDescription} startQuiz={this.startQuiz} />

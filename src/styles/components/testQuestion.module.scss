@@ -1,3 +1,4 @@
+@use "../base/colors.scss" as colors;
 @import "~bootstrap";
 
 .question {
@@ -21,6 +22,18 @@
             & input {
                 @extend .form-check-input
             }
+        }
+    }
+    & .btns {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    & button {
+        background-color: colors.$primary-100;
+        color: colors.$text-100;
+        &:disabled {
+            background-color: colors.$primary-300;
         }
     }
 }
